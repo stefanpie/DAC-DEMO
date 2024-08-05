@@ -1,0 +1,517 @@
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2.2 (64-bit)
+  **** SW Build 3779808 on Feb 17 2023
+  **** IP Build 3783773 on Tue Feb 21 23:41:56 MST 2023
+    ** Copyright 1986-2023 Xilinx, Inc. All Rights Reserved.
+
+source /tools/software/xilinx/Vitis_HLS/2022.2/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/tools/software/xilinx/Vitis_HLS/2022.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'skaram7' on host 'chao-srv1.ece.gatech.edu' (Linux_x86_64 version 3.10.0-1160.92.1.el7.x86_64) on Fri Jul 07 13:55:52 EDT 2023
+INFO: [HLS 200-10] On os "Red Hat Enterprise Linux Server release 7.9 (Maipo)"
+INFO: [HLS 200-10] In directory '/export/hdd/scratch/skaram7/DAC-DEMO/main_design/hw'
+Sourcing Tcl script 'vitis_script.tcl'
+INFO: [HLS 200-1510] Running: source vitis_script.tcl
+INFO: [HLS 200-1510] Running: open_project -reset model_top_vitis_hls_project 
+INFO: [HLS 200-10] Opening and resetting project '/export/hdd/scratch/skaram7/DAC-DEMO/main_design/hw/model_top_vitis_hls_project'.
+INFO: [HLS 200-1510] Running: add_files model.cpp 
+INFO: [HLS 200-10] Adding design file 'model.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files model.h 
+INFO: [HLS 200-10] Adding design file 'model.h' to the project
+INFO: [HLS 200-1510] Running: add_files -tb tb.cpp 
+INFO: [HLS 200-10] Adding test bench file 'tb.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb testbench_data 
+WARNING: [HLS 200-40] Cannot find test bench file 'testbench_data'
+INFO: [HLS 200-1510] Running: set_top siren_test_model 
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vitis 
+INFO: [HLS 200-10] Creating and opening solution '/export/hdd/scratch/skaram7/DAC-DEMO/main_design/hw/model_top_vitis_hls_project/solution1'.
+INFO: [HLS 200-1505] Using flow_target 'vitis'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_latency=64
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_alignment_byte_size=64
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_max_widen_bitwidth=512
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_rtl -register_reset_num=3
+INFO: [HLS 200-1510] Running: set_part xczu9eg-ffvb1156-2-e 
+INFO: [HLS 200-1611] Setting target device to 'xczu9eg-ffvb1156-2-e'
+INFO: [HLS 200-1510] Running: create_clock -period 3.33 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 3.33ns.
+INFO: [HLS 200-1510] Running: csynth_design 
+Running Dispatch Server on port: 34316
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0.01 seconds. Elapsed time: 10.03 seconds; current allocated memory: 982.562 MB.
+INFO: [HLS 200-10] Analyzing design file 'model.cpp' ... 
+WARNING: [HLS 207-1022] Fixed point model (./model.h:31:13)
+WARNING: [HLS 207-1022] Fixed point model (./model.h:31:9)
+WARNING: [HLS 207-5557] Unsupported interface port data type in '#pragma HLS interface m_axi' (model.cpp:51:42)
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 26.57 seconds. CPU system time: 1.67 seconds. Elapsed time: 29.01 seconds; current allocated memory: 982.562 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vitis' flow target.
+INFO: [HLS 214-377] Adding 'siren_net' into disaggregation list because there's array-partition pragma applied on the struct field (model.cpp:65:19)
+INFO: [HLS 214-210] Disaggregating variable 'siren_net' (model.cpp:34:0)
+Resolution: For help on HLS 214-210 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=214-210.html
+INFO: [HLS 214-210] Disaggregating variable 'siren_net.output_layer' (model.cpp:34:0)
+Resolution: For help on HLS 214-210 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=214-210.html
+INFO: [HLS 214-210] Disaggregating variable 'siren_net.input_layer' (model.cpp:34:0)
+Resolution: For help on HLS 214-210 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=214-210.html
+INFO: [HLS 214-210] Disaggregating variable 'siren_net.input_layer.linear' (model.cpp:34:0)
+Resolution: For help on HLS 214-210 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=214-210.html
+INFO: [HLS 214-210] Disaggregating variable 'siren_net.hidden_layers' (model.cpp:34:0)
+Resolution: For help on HLS 214-210 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=214-210.html
+INFO: [HLS 214-210] Disaggregating variable 'siren_net.hidden_layers.linear' (model.cpp:34:0)
+Resolution: For help on HLS 214-210 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=214-210.html
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_350_2' is marked as complete unroll implied by the pipeline pragma (./../../inr_hw_lib/inr_hw_lib.h:350:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_407_3' is marked as complete unroll implied by the pipeline pragma (./../../inr_hw_lib/inr_hw_lib.h:407:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_412_4' is marked as complete unroll implied by the pipeline pragma (./../../inr_hw_lib/inr_hw_lib.h:412:35)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_415_5' is marked as complete unroll implied by the pipeline pragma (./../../inr_hw_lib/inr_hw_lib.h:415:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_421_6' is marked as complete unroll implied by the pipeline pragma (./../../inr_hw_lib/inr_hw_lib.h:421:35)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_492_2' is marked as complete unroll implied by the pipeline pragma (./../../inr_hw_lib/inr_hw_lib.h:492:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_87_1' is marked as complete unroll implied by the pipeline pragma (/tools/software/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/hls_cordic_apfixed.h:87:22)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_350_2' (./../../inr_hw_lib/inr_hw_lib.h:350:20) in function 'Activation<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 3, &(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> activation_identity<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> >(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)), 1>::forward' completely with a factor of 1 (./../../inr_hw_lib/inr_hw_lib.h:344:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_407_3' (./../../inr_hw_lib/inr_hw_lib.h:407:20) in function 'Linear<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 3, 1, 1>::forward' completely with a factor of 1 (./../../inr_hw_lib/inr_hw_lib.h:392:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_412_4' (./../../inr_hw_lib/inr_hw_lib.h:412:35) in function 'Linear<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 3, 1, 1>::forward' completely with a factor of 1 (./../../inr_hw_lib/inr_hw_lib.h:392:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_415_5' (./../../inr_hw_lib/inr_hw_lib.h:415:20) in function 'Linear<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 3, 1, 1>::forward' completely with a factor of 1 (./../../inr_hw_lib/inr_hw_lib.h:392:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_421_6' (./../../inr_hw_lib/inr_hw_lib.h:421:35) in function 'Linear<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 3, 1, 1>::forward' completely with a factor of 1 (./../../inr_hw_lib/inr_hw_lib.h:392:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_407_3' (./../../inr_hw_lib/inr_hw_lib.h:407:20) in function 'Linear<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 256, 1, 1>::forward' completely with a factor of 1 (./../../inr_hw_lib/inr_hw_lib.h:392:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_412_4' (./../../inr_hw_lib/inr_hw_lib.h:412:35) in function 'Linear<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 256, 1, 1>::forward' completely with a factor of 1 (./../../inr_hw_lib/inr_hw_lib.h:392:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_415_5' (./../../inr_hw_lib/inr_hw_lib.h:415:20) in function 'Linear<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 256, 1, 1>::forward' completely with a factor of 1 (./../../inr_hw_lib/inr_hw_lib.h:392:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_421_6' (./../../inr_hw_lib/inr_hw_lib.h:421:35) in function 'Linear<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 256, 1, 1>::forward' completely with a factor of 1 (./../../inr_hw_lib/inr_hw_lib.h:392:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_492_2' (./../../inr_hw_lib/inr_hw_lib.h:492:20) in function 'SirenSine<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 1>::forward' completely with a factor of 1 (./../../inr_hw_lib/inr_hw_lib.h:486:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_87_1' (/tools/software/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/hls_cordic_apfixed.h:87:22) in function 'cordic_apfixed::cordic_circ_apfixed<66, 3, 0>' completely with a factor of 66 (/tools/software/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/hls_cordic_apfixed.h:79:0)
+WARNING: [HLS 214-189] Pipeline directive for loop 'VITIS_LOOP_87_1' (/tools/software/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/hls_cordic_apfixed.h:87:22) in function 'cordic_apfixed::cordic_circ_apfixed<66, 3, 0>' has been removed because the loop is unrolled completely (/tools/software/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/hls_cordic_apfixed.h:79:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_407_3' (./../../inr_hw_lib/inr_hw_lib.h:407:20) in function 'Linear<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 256, 1, 1>::forward' completely with a factor of 1 (./../../inr_hw_lib/inr_hw_lib.h:392:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_412_4' (./../../inr_hw_lib/inr_hw_lib.h:412:35) in function 'Linear<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 256, 1, 1>::forward' completely with a factor of 1 (./../../inr_hw_lib/inr_hw_lib.h:392:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_415_5' (./../../inr_hw_lib/inr_hw_lib.h:415:20) in function 'Linear<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 256, 1, 1>::forward' completely with a factor of 1 (./../../inr_hw_lib/inr_hw_lib.h:392:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_421_6' (./../../inr_hw_lib/inr_hw_lib.h:421:35) in function 'Linear<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 256, 1, 1>::forward' completely with a factor of 1 (./../../inr_hw_lib/inr_hw_lib.h:392:0)
+WARNING: [HLS 214-366] Duplicating function 'SirenSine<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 1>::forward(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*) (.75.99.114.225)' as different function signatures were detected between this call site and other call site(s). This may impact the resources used in the design. (./../../inr_hw_lib/inr_hw_lib.h:520:14)
+WARNING: [HLS 214-366] Duplicating function 'SirenSine<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 1>::load_params(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)' as different function signatures were detected between this call site and other call site(s). This may impact the resources used in the design. (./../../inr_hw_lib/inr_hw_lib.h:515:14)
+INFO: [HLS 214-178] Inlining function 'Linear<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 256, 1, 1>::load_params(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [2], ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*)' into 'SirenLayer<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 256, 1, 1>::load_params(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [2], ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)' (./../../inr_hw_lib/inr_hw_lib.h:513:0)
+INFO: [HLS 214-178] Inlining function 'SirenSine<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 1>::load_params(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>) (.587)' into 'SirenLayer<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 256, 1, 1>::load_params(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [2], ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)' (./../../inr_hw_lib/inr_hw_lib.h:513:0)
+INFO: [HLS 214-178] Inlining function 'Linear<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 256, 1, 1>::load_params(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [256], ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*)' into 'SirenLayer<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 256, 1, 1>::load_params(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [256], ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)' (./../../inr_hw_lib/inr_hw_lib.h:513:0)
+INFO: [HLS 214-178] Inlining function 'SirenSine<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 1>::load_params(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)' into 'SirenLayer<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 256, 1, 1>::load_params(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [256], ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)' (./../../inr_hw_lib/inr_hw_lib.h:513:0)
+INFO: [HLS 214-178] Inlining function 'SirenLayer<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 256, 1, 1>::load_params(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [2], ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)' into 'SirenNet<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 3, 256, 4, &(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> activation_identity<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> >(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)), 1, 1, 1>::load_params(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [2], ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [256][256], ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [256], ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [256], ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*)' (./../../inr_hw_lib/inr_hw_lib.h:564:0)
+INFO: [HLS 214-178] Inlining function 'SirenLayer<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 256, 1, 1>::load_params(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [256], ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)' into 'SirenNet<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 3, 256, 4, &(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> activation_identity<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> >(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)), 1, 1, 1>::load_params(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [2], ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [256][256], ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [256], ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [256], ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*)' (./../../inr_hw_lib/inr_hw_lib.h:564:0)
+INFO: [HLS 214-178] Inlining function 'Linear<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 3, 1, 1>::load_params(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [256], ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*)' into 'SirenNet<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 3, 256, 4, &(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> activation_identity<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> >(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)), 1, 1, 1>::load_params(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [2], ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [256][256], ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [256], ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> (*) [256], ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*)' (./../../inr_hw_lib/inr_hw_lib.h:564:0)
+INFO: [HLS 214-178] Inlining function 'void cordic_apfixed::circ_range_redux<64, 32, 65>(ap_ufixed<64, 32, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_uint<2>&, ap_ufixed<65, 1, (ap_q_mode)5, (ap_o_mode)3, 0>&)' into 'void cordic_apfixed::generic_sincos<64, 32>(ap_fixed<64, 32, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<((64) - (32)) + (2), 2, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_fixed<((64) - (32)) + (2), 2, (ap_q_mode)5, (ap_o_mode)3, 0>&)' (/tools/software/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/hls_cordic_apfixed.h:228:0)
+INFO: [HLS 214-178] Inlining function 'void cordic_apfixed::generic_sincos<64, 32>(ap_fixed<64, 32, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<((64) - (32)) + (2), 2, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_fixed<((64) - (32)) + (2), 2, (ap_q_mode)5, (ap_o_mode)3, 0>&)' into 'ap_fixed<((64) - (32)) + (2), 2, (ap_q_mode)5, (ap_o_mode)3, 0> hls::sin<64, 32>(ap_fixed<64, 32, (ap_q_mode)5, (ap_o_mode)3, 0>)' (/tools/software/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/hls_math.h:1934:0)
+INFO: [HLS 214-178] Inlining function 'ap_fixed<64, 32, (ap_q_mode)5, (ap_o_mode)3, 0> activation_sin<ap_fixed<64, 32, (ap_q_mode)5, (ap_o_mode)3, 0> >(ap_fixed<64, 32, (ap_q_mode)5, (ap_o_mode)3, 0>)' into 'SirenSine<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 1>::forward(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*) (.75.99.114.225.586)' (./../../inr_hw_lib/inr_hw_lib.h:486:0)
+INFO: [HLS 214-178] Inlining function 'ap_fixed<64, 32, (ap_q_mode)5, (ap_o_mode)3, 0> activation_sin<ap_fixed<64, 32, (ap_q_mode)5, (ap_o_mode)3, 0> >(ap_fixed<64, 32, (ap_q_mode)5, (ap_o_mode)3, 0>)' into 'SirenSine<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 1>::forward(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*) (.75.99.114.225)' (./../../inr_hw_lib/inr_hw_lib.h:486:0)
+INFO: [HLS 214-178] Inlining function 'ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> activation_identity<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> >(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)' into 'Activation<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 3, &(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> activation_identity<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> >(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)), 1>::forward(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*)' (./../../inr_hw_lib/inr_hw_lib.h:344:0)
+INFO: [HLS 214-178] Inlining function 'SirenLayer<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 256, 1, 1>::forward(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*)' into 'SirenNet<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 3, 256, 4, &(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> activation_identity<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> >(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)), 1, 1, 1>::forward(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*)' (./../../inr_hw_lib/inr_hw_lib.h:573:0)
+INFO: [HLS 214-178] Inlining function 'SirenLayer<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 256, 1, 1>::forward(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*)' into 'SirenNet<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 3, 256, 4, &(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> activation_identity<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> >(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)), 1, 1, 1>::forward(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*)' (./../../inr_hw_lib/inr_hw_lib.h:573:0)
+INFO: [HLS 214-178] Inlining function 'SirenNet<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 3, 256, 4, &(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> activation_identity<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> >(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)), 1, 1, 1>::forward(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*)' into 'siren_test_model' (model.cpp:47:0)
+INFO: [HLS 214-241] Aggregating maxi variable 'output_layer_weight_in' with compact=none mode in 32-bits (model.cpp:47:0)
+INFO: [HLS 214-241] Aggregating maxi variable 'hidden_layers_bias_in' with compact=none mode in 32-bits
+INFO: [HLS 214-241] Aggregating maxi variable 'hidden_layers_weight_in' with compact=none mode in 32-bits
+INFO: [HLS 214-241] Aggregating maxi variable 'input_layer_weight_in' with compact=none mode in 32-bits (model.cpp:47:0)
+INFO: [HLS 214-364] Automatically inlining function 'ap_fixed<((64) - (32)) + (2), 2, (ap_q_mode)5, (ap_o_mode)3, 0> hls::sin<64, 32>(ap_fixed<64, 32, (ap_q_mode)5, (ap_o_mode)3, 0>)' to improve effectiveness of pipeline pragma in function 'SirenSine<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 1>::forward(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*) (.75.99.114.225)' (./../../inr_hw_lib/inr_hw_lib.h:301:13)
+INFO: [HLS 214-364] Automatically inlining function 'void cordic_apfixed::cordic_circ_apfixed<66, 3, 0>(ap_fixed<66, 3, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_fixed<66, 3, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_fixed<66, 3, (ap_q_mode)5, (ap_o_mode)3, 0>&)' to improve effectiveness of pipeline pragma in function 'SirenSine<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 1>::forward(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*) (.75.99.114.225)' (/tools/software/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/hls_cordic_apfixed.h:266:5)
+INFO: [HLS 214-364] Automatically inlining function 'ap_fixed<((64) - (32)) + (2), 2, (ap_q_mode)5, (ap_o_mode)3, 0> hls::sin<64, 32>(ap_fixed<64, 32, (ap_q_mode)5, (ap_o_mode)3, 0>)' to improve effectiveness of pipeline pragma in function 'SirenSine<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 1>::forward(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*) (.75.99.114.225.586)' (./../../inr_hw_lib/inr_hw_lib.h:301:13)
+INFO: [HLS 214-364] Automatically inlining function 'void cordic_apfixed::cordic_circ_apfixed<66, 3, 0>(ap_fixed<66, 3, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_fixed<66, 3, (ap_q_mode)5, (ap_o_mode)3, 0>&, ap_fixed<66, 3, (ap_q_mode)5, (ap_o_mode)3, 0>&)' to improve effectiveness of pipeline pragma in function 'SirenSine<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 1>::forward(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>*) (.75.99.114.225.586)' (/tools/software/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/hls_cordic_apfixed.h:266:5)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 6.93 seconds. CPU system time: 0.75 seconds. Elapsed time: 8.78 seconds; current allocated memory: 982.562 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 982.562 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.35 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.38 seconds; current allocated memory: 1.022 GB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.62 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.64 seconds; current allocated memory: 1.022 GB.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_384_1' (./../../inr_hw_lib/inr_hw_lib.h:384) in function 'SirenNet<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 3, 256, 4, &(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> activation_identity<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> >(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)), 1, 1, 1>::load_params' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_385_2' (./../../inr_hw_lib/inr_hw_lib.h:385) in function 'SirenNet<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 3, 256, 4, &(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> activation_identity<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> >(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)), 1, 1, 1>::load_params' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_385_2' (./../../inr_hw_lib/inr_hw_lib.h:385) in function 'SirenNet<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 3, 256, 4, &(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> activation_identity<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> >(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)), 1, 1, 1>::load_params' automatically.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_384_1' (./../../inr_hw_lib/inr_hw_lib.h:384) in function 'SirenNet<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 3, 256, 4, &(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> activation_identity<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> >(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)), 1, 1, 1>::load_params' for pipelining.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_385_2' (./../../inr_hw_lib/inr_hw_lib.h:385) in function 'SirenNet<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 3, 256, 4, &(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> activation_identity<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> >(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)), 1, 1, 1>::load_params' completely with a factor of 2.
+INFO: [XFORM 203-102] Automatically partitioning small array 'siren_net.output_layer.bias.V' completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'siren_net.hidden_layers.sine.w0.V' completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'siren_net.output_layer.bias.V' in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'siren_net.hidden_layers.sine.w0.V' in dimension 1 completely.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (./../../inr_hw_lib/inr_hw_lib.h:583:17) in function 'siren_test_model'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/tools/software/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/hls_cordic_apfixed.h:245:27) to (./../../inr_hw_lib/inr_hw_lib.h:490:20) in function 'SirenSine<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 1>::forward.1'... converting 195 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/tools/software/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/hls_cordic_apfixed.h:245:27) to (./../../inr_hw_lib/inr_hw_lib.h:490:20) in function 'SirenSine<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 1>::forward'... converting 195 basic blocks.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 1.89 seconds. CPU system time: 0.05 seconds. Elapsed time: 1.94 seconds; current allocated memory: 1.147 GB.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_384_1' (./../../inr_hw_lib/inr_hw_lib.h:384:29) in function 'SirenNet<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 3, 256, 4, &(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> activation_identity<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> >(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)), 1, 1, 1>::load_params' the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_566_1' (./../../inr_hw_lib/inr_hw_lib.h:566:36) in function 'SirenNet<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 3, 256, 4, &(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> activation_identity<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> >(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)), 1, 1, 1>::load_params' the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_384_1' (./../../inr_hw_lib/inr_hw_lib.h:384:29) in function 'SirenNet<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 3, 256, 4, &(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> activation_identity<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0> >(ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>)), 1, 1, 1>::load_params' the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_402_1' (./../../inr_hw_lib/inr_hw_lib.h:402:29) in function 'Linear<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 3, 1, 1>::forward' the outer loop is not a perfect loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_402_1' (./../../inr_hw_lib/inr_hw_lib.h:402:29) in function 'Linear<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 256, 1, 1>::forward.1'.
+INFO: [XFORM 203-541] Flattening a loop nest 'VITIS_LOOP_402_1' (./../../inr_hw_lib/inr_hw_lib.h:402:29) in function 'Linear<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 256, 256, 1, 1>::forward'.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_402_1' (./../../inr_hw_lib/inr_hw_lib.h:402:29) in function 'Linear<ap_fixed<32, 16, (ap_q_mode)5, (ap_o_mode)3, 0>, 2, 256, 1, 1>::forward' the outer loop is not a perfect loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+INFO: [HLS 200-472] Inferring partial write operation for 'siren_net.input_layer.linear.weight.V' (./../../inr_hw_lib/inr_hw_lib.h:386:30)
+INFO: [HLS 200-472] Inferring partial write operation for 'siren_net.input_layer.linear.bias.V' (./../../inr_hw_lib/inr_hw_lib.h:388:21)
+INFO: [HLS 200-472] Inferring partial write operation for 'siren_net.hidden_layers.linear.weight.V' (./../../inr_hw_lib/inr_hw_lib.h:386:30)
+INFO: [HLS 200-472] Inferring partial write operation for 'siren_net.hidden_layers.linear.bias.V' (./../../inr_hw_lib/inr_hw_lib.h:388:21)
+INFO: [HLS 200-472] Inferring partial write operation for 'siren_net.output_layer.weight.V' (./../../inr_hw_lib/inr_hw_lib.h:386:30)
+INFO: [HLS 200-472] Inferring partial write operation for 'output' (./../../inr_hw_lib/inr_hw_lib.h:426:39)
+INFO: [HLS 200-472] Inferring partial write operation for 'output' (./../../inr_hw_lib/inr_hw_lib.h:426:39)
+INFO: [HLS 200-472] Inferring partial write operation for 'output' 
+INFO: [HLS 200-472] Inferring partial write operation for 'output' (./../../inr_hw_lib/inr_hw_lib.h:426:39)
+INFO: [HLS 200-472] Inferring partial write operation for 'x_out' (./../../inr_hw_lib/inr_hw_lib.h:493:30)
+INFO: [HLS 200-472] Inferring partial write operation for 'x_out' (./../../inr_hw_lib/inr_hw_lib.h:493:30)
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 1.08 seconds. CPU system time: 0.03 seconds. Elapsed time: 1.13 seconds; current allocated memory: 1.272 GB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'siren_test_model' ...
+WARNING: [SYN 201-103] Legalizing function name 'forward.3_Pipeline_VITIS_LOOP_404_2' to 'forward_3_Pipeline_VITIS_LOOP_404_2'.
+WARNING: [SYN 201-103] Legalizing function name 'forward.3' to 'forward_3'.
+WARNING: [SYN 201-103] Legalizing function name 'forward.1' to 'forward_1'.
+WARNING: [SYN 201-103] Legalizing function name 'forward.1.2' to 'forward_1_2'.
+WARNING: [SYN 201-103] Legalizing function name 'forward.2' to 'forward_2'.
+WARNING: [SYN 201-103] Legalizing function name 'forward.1.1_Pipeline_VITIS_LOOP_404_2' to 'forward_1_1_Pipeline_VITIS_LOOP_404_2'.
+WARNING: [SYN 201-103] Legalizing function name 'forward.1.1' to 'forward_1_1'.
+WARNING: [SYN 201-103] Legalizing function name 'forward.4' to 'forward_4'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'load_params_Pipeline_VITIS_LOOP_384_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_384_1'.
+WARNING: [HLS 200-885] The II Violation in module 'load_params_Pipeline_VITIS_LOOP_384_1' (loop 'VITIS_LOOP_384_1'): Unable to schedule bus request operation ('weights_load_2_req', ./../../inr_hw_lib/inr_hw_lib.h:388) on port 'weights' (./../../inr_hw_lib/inr_hw_lib.h:388) due to limited memory ports (II = 1). Please consider using a memory core with more ports or partitioning the array.
+Resolution: For help on HLS 200-885 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-885.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 2, Depth = 74, loop 'VITIS_LOOP_384_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.28 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.33 seconds; current allocated memory: 1.272 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.28 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.29 seconds; current allocated memory: 1.272 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'load_params_Pipeline_VITIS_LOOP_385_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_385_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 73, loop 'VITIS_LOOP_385_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.19 seconds. CPU system time: 0 seconds. Elapsed time: 0.3 seconds; current allocated memory: 1.272 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.28 seconds. CPU system time: 0 seconds. Elapsed time: 0.28 seconds; current allocated memory: 1.272 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'load_params_Pipeline_VITIS_LOOP_385_25' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_385_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 73, loop 'VITIS_LOOP_385_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.18 seconds. CPU system time: 0 seconds. Elapsed time: 0.19 seconds; current allocated memory: 1.272 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.27 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.28 seconds; current allocated memory: 1.272 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'load_params' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.4 seconds. CPU system time: 0 seconds. Elapsed time: 0.41 seconds; current allocated memory: 1.272 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.83 seconds. CPU system time: 0 seconds. Elapsed time: 0.83 seconds; current allocated memory: 1.272 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'forward_3_Pipeline_VITIS_LOOP_404_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_404_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 5, loop 'VITIS_LOOP_404_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.26 seconds. CPU system time: 0 seconds. Elapsed time: 0.26 seconds; current allocated memory: 1.272 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 1.272 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'forward_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.15 seconds. CPU system time: 0 seconds. Elapsed time: 0.15 seconds; current allocated memory: 1.272 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.28 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.29 seconds; current allocated memory: 1.272 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'forward_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_490_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 79, loop 'VITIS_LOOP_490_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1.79 seconds. CPU system time: 0.02 seconds. Elapsed time: 1.81 seconds; current allocated memory: 1.335 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1.26 seconds. CPU system time: 0 seconds. Elapsed time: 1.26 seconds; current allocated memory: 1.335 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'forward_1_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_402_1_VITIS_LOOP_404_2'.
+WARNING: [HLS 200-880] The II Violation in module 'forward_1_2' (loop 'VITIS_LOOP_402_1_VITIS_LOOP_404_2'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'store' operation ('output_addr_write_ln813') of variable 'add_ln813' on array 'output_r' and 'store' operation ('output_addr_write_ln426', ./../../inr_hw_lib/inr_hw_lib.h:426) of variable 'this_bias_load', ./../../inr_hw_lib/inr_hw_lib.h:402 on array 'output_r'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'forward_1_2' (loop 'VITIS_LOOP_402_1_VITIS_LOOP_404_2'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between 'store' operation ('output_addr_write_ln813') of variable 'add_ln813' on array 'output_r' and 'store' operation ('output_addr_write_ln426', ./../../inr_hw_lib/inr_hw_lib.h:426) of variable 'this_bias_load', ./../../inr_hw_lib/inr_hw_lib.h:402 on array 'output_r'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'forward_1_2' (loop 'VITIS_LOOP_402_1_VITIS_LOOP_404_2'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between 'store' operation ('output_addr_write_ln813') of variable 'add_ln813' on array 'output_r' and 'store' operation ('output_addr_write_ln426', ./../../inr_hw_lib/inr_hw_lib.h:426) of variable 'this_bias_load', ./../../inr_hw_lib/inr_hw_lib.h:402 on array 'output_r'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'forward_1_2' (loop 'VITIS_LOOP_402_1_VITIS_LOOP_404_2'): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1) between 'store' operation ('output_addr_write_ln813') of variable 'add_ln813' on array 'output_r' and 'load' operation ('output_load_1') on array 'output_r'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 5, Depth = 8, loop 'VITIS_LOOP_402_1_VITIS_LOOP_404_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 2.01 seconds. CPU system time: 0.01 seconds. Elapsed time: 2.02 seconds; current allocated memory: 1.335 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 1.335 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'forward' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_490_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 79, loop 'VITIS_LOOP_490_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1.77 seconds. CPU system time: 0.01 seconds. Elapsed time: 1.78 seconds; current allocated memory: 1.335 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1.26 seconds. CPU system time: 0.01 seconds. Elapsed time: 1.27 seconds; current allocated memory: 1.335 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'forward_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_402_1_VITIS_LOOP_404_2'.
+WARNING: [HLS 200-880] The II Violation in module 'forward_2' (loop 'VITIS_LOOP_402_1_VITIS_LOOP_404_2'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'store' operation ('output_addr_write_ln813') of variable 'add_ln813' on array 'output_r' and 'store' operation ('output_addr_write_ln426', ./../../inr_hw_lib/inr_hw_lib.h:426) of variable 'this_bias_load', ./../../inr_hw_lib/inr_hw_lib.h:402 on array 'output_r'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'forward_2' (loop 'VITIS_LOOP_402_1_VITIS_LOOP_404_2'): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between 'store' operation ('output_addr_write_ln813') of variable 'add_ln813' on array 'output_r' and 'store' operation ('output_addr_write_ln426', ./../../inr_hw_lib/inr_hw_lib.h:426) of variable 'this_bias_load', ./../../inr_hw_lib/inr_hw_lib.h:402 on array 'output_r'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+WARNING: [HLS 200-880] The II Violation in module 'forward_2' (loop 'VITIS_LOOP_402_1_VITIS_LOOP_404_2'): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between 'store' operation ('output_addr_write_ln813') of variable 'add_ln813' on array 'output_r' and 'store' operation ('output_addr_write_ln426', ./../../inr_hw_lib/inr_hw_lib.h:426) of variable 'this_bias_load', ./../../inr_hw_lib/inr_hw_lib.h:402 on array 'output_r'.
+Resolution: For help on HLS 200-880 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-880.html
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 4, Depth = 8, loop 'VITIS_LOOP_402_1_VITIS_LOOP_404_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 2 seconds. CPU system time: 0.01 seconds. Elapsed time: 2.02 seconds; current allocated memory: 1.335 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 1.335 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'forward_1_1_Pipeline_VITIS_LOOP_404_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_404_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 5, loop 'VITIS_LOOP_404_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 1.335 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 1.335 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'forward_1_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.06 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.07 seconds; current allocated memory: 1.335 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 1.335 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'forward_4' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_348_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 71, loop 'VITIS_LOOP_348_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.16 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.17 seconds; current allocated memory: 1.335 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.27 seconds. CPU system time: 0 seconds. Elapsed time: 0.27 seconds; current allocated memory: 1.335 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'siren_test_model' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.21 seconds. CPU system time: 0 seconds. Elapsed time: 0.21 seconds; current allocated memory: 1.335 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1.4 seconds. CPU system time: 0.01 seconds. Elapsed time: 1.41 seconds; current allocated memory: 1.335 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'load_params_Pipeline_VITIS_LOOP_384_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'load_params_Pipeline_VITIS_LOOP_384_1' pipeline 'VITIS_LOOP_384_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'load_params_Pipeline_VITIS_LOOP_384_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 3.33 seconds. CPU system time: 0.01 seconds. Elapsed time: 3.34 seconds; current allocated memory: 1.335 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'load_params_Pipeline_VITIS_LOOP_385_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'load_params_Pipeline_VITIS_LOOP_385_2' pipeline 'VITIS_LOOP_385_2' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'load_params_Pipeline_VITIS_LOOP_385_2'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.28 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.28 seconds; current allocated memory: 1.335 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'load_params_Pipeline_VITIS_LOOP_385_25' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'load_params_Pipeline_VITIS_LOOP_385_25' pipeline 'VITIS_LOOP_385_2' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'load_params_Pipeline_VITIS_LOOP_385_25'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.23 seconds. CPU system time: 0 seconds. Elapsed time: 0.23 seconds; current allocated memory: 1.335 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'load_params' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'load_params'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.24 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.26 seconds; current allocated memory: 1.335 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'forward_3_Pipeline_VITIS_LOOP_404_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'forward_3_Pipeline_VITIS_LOOP_404_2' pipeline 'VITIS_LOOP_404_2' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_48_2_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'forward_3_Pipeline_VITIS_LOOP_404_2'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.34 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.36 seconds; current allocated memory: 1.335 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'forward_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_48_2_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'forward_3'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.12 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.13 seconds; current allocated memory: 1.335 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'forward_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-104] Estimated max fanout for 'forward_1' is 16569 from HDL expression: (1'b0 == ap_block_pp0_stage0_11001)
+INFO: [RTGEN 206-100] Generating core module 'mul_32ns_65ns_66_3_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_64_2_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_64ns_98ns_161_3_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'forward_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.52 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.58 seconds; current allocated memory: 1.335 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'forward_1_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'forward_1_2' pipeline 'VITIS_LOOP_402_1_VITIS_LOOP_404_2' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_48_2_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'forward_1_2'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 5.16 seconds. CPU system time: 0.05 seconds. Elapsed time: 5.22 seconds; current allocated memory: 1.397 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'forward' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'forward' pipeline 'VITIS_LOOP_490_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-104] Estimated max fanout for 'forward' is 16796 from HDL expression: (1'b0 == ap_block_pp0_stage0_11001)
+INFO: [RTGEN 206-100] Generating core module 'mul_32ns_65ns_66_3_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_64_2_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_64ns_98ns_161_3_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'forward'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.6 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.61 seconds; current allocated memory: 1.397 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'forward_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'forward_2' pipeline 'VITIS_LOOP_402_1_VITIS_LOOP_404_2' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_48_2_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'forward_2'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 5.18 seconds. CPU system time: 0.03 seconds. Elapsed time: 5.23 seconds; current allocated memory: 1.397 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'forward_1_1_Pipeline_VITIS_LOOP_404_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'forward_1_1_Pipeline_VITIS_LOOP_404_2' pipeline 'VITIS_LOOP_404_2' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_48_2_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'forward_1_1_Pipeline_VITIS_LOOP_404_2'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.16 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.18 seconds; current allocated memory: 1.397 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'forward_1_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_48_2_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mux_32_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'forward_1_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.15 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 1.397 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'forward_4' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'forward_4' pipeline 'VITIS_LOOP_348_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'forward_4'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.12 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.14 seconds; current allocated memory: 1.397 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'siren_test_model' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'siren_test_model/inout1' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'siren_test_model/weights' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'siren_test_model/x_in' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'siren_test_model/x_out' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'siren_test_model/load_parameters_flag' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'siren_test_model/input_layer_weight_in' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'siren_test_model/input_layer_bias_in' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'siren_test_model/input_layer_w0_in' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'siren_test_model/hidden_layers_weight_in' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'siren_test_model/hidden_layers_bias_in' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'siren_test_model/hidden_layers_w0_in' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'siren_test_model/output_layer_weight_in' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'siren_test_model/output_layer_bias_in' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'siren_test_model' to 's_axilite & ap_ctrl_chain'.
+WARNING: [RTGEN 206-101] Register 'siren_net_input_layer_sine_w0_V' is power-on initialization.
+WARNING: [RTGEN 206-101] Global array 'siren_net_hidden_layers_linear_weight_V' will not be exposed as RTL port.
+WARNING: [RTGEN 206-101] Global array 'siren_net_hidden_layers_linear_bias_V' will not be exposed as RTL port.
+WARNING: [RTGEN 206-101] Register 'siren_net_output_layer_bias_V_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'siren_net_output_layer_bias_V_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'siren_net_output_layer_bias_V_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'siren_net_hidden_layers_sine_w0_V_0' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'siren_net_hidden_layers_sine_w0_V_1' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'siren_net_hidden_layers_sine_w0_V_2' is power-on initialization.
+WARNING: [RTGEN 206-101] Register 'siren_net_hidden_layers_sine_w0_V_3' is power-on initialization.
+INFO: [RTGEN 206-100] Bundling port 'x_in', 'x_out', 'load_parameters_flag', 'input_layer_weight_in', 'input_layer_bias_in', 'input_layer_w0_in', 'hidden_layers_weight_in', 'hidden_layers_bias_in', 'hidden_layers_w0_in', 'output_layer_weight_in', 'output_layer_bias_in' and 'return' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_32s_48_2_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'siren_test_model'.
+INFO: [RTMG 210-278] Implementing memory 'siren_test_model_siren_net_input_layer_linear_bias_V_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'siren_test_model_siren_net_input_layer_linear_weight_V_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'siren_test_model_siren_net_hidden_layers_linear_weight_V_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'siren_test_model_siren_net_hidden_layers_linear_bias_V_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'siren_test_model_siren_net_output_layer_weight_V_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'siren_test_model_input_layer_buffer_V_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'siren_test_model_hidden_layer_buffers_V_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-278] Implementing memory 'siren_test_model_output_layer_buffer_V_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.34 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.46 seconds; current allocated memory: 1.397 GB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 6.21 seconds. CPU system time: 0.07 seconds. Elapsed time: 6.35 seconds; current allocated memory: 1.397 GB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 2.04 seconds. CPU system time: 0.04 seconds. Elapsed time: 2.1 seconds; current allocated memory: 1.460 GB.
+INFO: [VHDL 208-304] Generating VHDL RTL for siren_test_model.
+INFO: [VLOG 209-307] Generating Verilog RTL for siren_test_model.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 411.37 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 78.6 seconds. CPU system time: 3.03 seconds. Elapsed time: 83.95 seconds; current allocated memory: 512.000 MB.
+INFO: [HLS 200-1510] Running: export_design -format ip_catalog 
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+
+****** Vivado v2022.2.2 (64-bit)
+  **** SW Build 3788238 on Tue Feb 21 19:59:23 MST 2023
+  **** IP Build 3783773 on Tue Feb 21 23:41:56 MST 2023
+    ** Copyright 1986-2023 Xilinx, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+ipx::create_core: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1993.203 ; gain = 88.984 ; free physical = 451443 ; free virtual = 485353
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/software/xilinx/Vivado/2022.2/data/ip'.
+INFO: [Common 17-206] Exiting Vivado at Fri Jul  7 13:57:50 2023...
+INFO: [HLS 200-802] Generated output file model_top_vitis_hls_project/solution1/impl/export.zip
+INFO: [HLS 200-111] Finished Command export_design CPU user time: 15.56 seconds. CPU system time: 1.45 seconds. Elapsed time: 29.81 seconds; current allocated memory: 0.000 MB.
+INFO: [HLS 200-112] Total CPU user time: 97.54 seconds. Total CPU system time: 5.08 seconds. Total elapsed time: 128.41 seconds; peak allocated memory: 1.460 GB.
+INFO: [Common 17-206] Exiting vitis_hls at Fri Jul  7 13:58:00 2023...

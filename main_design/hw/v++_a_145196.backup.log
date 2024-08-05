@@ -1,0 +1,7 @@
+ERROR: [v++ 60-1258] No valid platform was found that matches 'xczu9eg-ffvb1156-2-e'. Please make sure that the platform is specified correctly, and the platform has the right version number. The platform repo paths are:
+	/tools/software/xilinx/Vitis/2022.2/platforms
+The valid platforms found from the above repo paths are:
+
+ERROR: [v++ 60-587] Failed to add a platform: specified platform xczu9eg-ffvb1156-2-e is not found or is not valid
+INFO: [v++ 60-1662] Stopping dispatch session having empty uuid.
+INFO: [v++ 60-1653] Closing dispatch client.
